@@ -1,0 +1,8 @@
+body {
+  font-family: Arial;
+  padding: 20px;
+}
+#output {
+  margin-top: 20px;
+  color: green;
+}
