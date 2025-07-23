@@ -5,7 +5,7 @@ const IndexHTML = `
 <html>
 <head>
     <title>Weather Ball</title>
-    <link rel="stylesheet" href = "style.css">
+    <link rel="stylesheet" href = "/static/style.css">
 </head>
 
 <body>
@@ -16,7 +16,7 @@ const IndexHTML = `
     <h2>Results:</h2>
     <pre id="results">No results yet.</pre>
 
-    <script src="script.js"></script>
+    <script src="/static/script.js"></script>
 </body>
 
 

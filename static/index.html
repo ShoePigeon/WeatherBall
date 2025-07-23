@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Weatherball</title>
+<style>
+  body { font-family: sans-serif; padding: 2rem; max-width: 600px; margin: auto; }
+  input, button { padding: 0.5rem; font-size: 1rem; margin-right: 0.5rem; }
+  pre { background: #eee; padding: 1rem; white-space: pre-wrap; }
+</style>
+</head>
+<body>
+<h1>Find Optimal Cool Times to Go Outside</h1>
+<input id="location" placeholder="Enter location (e.g. San Diego, California)" size="40" />
+<button onclick="fetchCoolTimes()">Search</button>
+
+<h2>Results:</h2>
+<pre id="results">No results yet.</pre>
+
+<script>
+async function fetchCoolTimes() {
+  const location = document.getElementById("location").value.trim();
+  if (!location) return alert("Please enter a location");
+
+  const res = await fetch('/api/cooltimes', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ location }),
+  });
+
+  if (!res.ok) {
+    document.getElementById("results").textContent = `Error: ${res.statusText}`;
+    return;
+  }
+
+  const data = await res.json();
+  const coolTimes = data.cool_times;
+  let output = `Cool times (<=22°C) for ${data.location}:\n\n`;
+
+  for (const day in coolTimes) {
+    output += `${day}:\n  ${coolTimes[day].join(", ")}\n`;
+  }
+
+  document.getElementById("results").textContent = output || "No cool times found.";
+}
+</script>
+</body>
+</html>
