@@ -1,0 +1,13 @@
+  body { 
+    font-family: sans-serif; 
+    padding: 2rem; 
+    max-width: 600px; 
+    margin: auto; }
+  input, button { 
+    padding: 0.5rem; 
+    font-size: 1rem; 
+    margin-right: 0.5rem; }
+  pre { 
+    background: #eee; 
+    padding: 1rem; 
+    white-space: pre-wrap; }

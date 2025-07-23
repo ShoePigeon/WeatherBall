@@ -1,0 +1,35 @@
+# Ignore text files
+*.txt
+
+# Go build files
+/server          # if you build your Go binary here
+*.exe
+*.out
+*.test
+
+# Dependency cache
+/pkg/
+vendor/
+
+# IDE/editor config
+.vscode/
+.idea/
+*.swp
+*.swo
+*.bak
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Environment variables or secrets
+.env
+*.env
+
+# Node-related (only if you're using tools like npm for frontend)
+node_modules/
+dist/
+
+# Logs and temp files
+*.log
+*.tmp
